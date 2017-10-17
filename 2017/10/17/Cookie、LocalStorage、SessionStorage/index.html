@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="首先，从存储位置来看，可以分为服务端存储和客户端存储两种。 服务端存储：session 浏览器端存储：cookie，localStorage，sessionStorage  作为浏览器端存储的cookie，也可以在服务端对其进行操作">
+<meta name="description" content="首先，从存储位置来看，可以分为服务端存储和客户端存储两种。 服务端存储：session 浏览器端存储：cookie，localStorage，sessionStorage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie、LocalStorage、SessionStorage">
 <meta property="og:url" content="http://yoursite.com/2017/10/17/Cookie、LocalStorage、SessionStorage/index.html">
 <meta property="og:site_name" content="zlienqwe">
-<meta property="og:description" content="首先，从存储位置来看，可以分为服务端存储和客户端存储两种。 服务端存储：session 浏览器端存储：cookie，localStorage，sessionStorage  作为浏览器端存储的cookie，也可以在服务端对其进行操作">
+<meta property="og:description" content="首先，从存储位置来看，可以分为服务端存储和客户端存储两种。 服务端存储：session 浏览器端存储：cookie，localStorage，sessionStorage">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-17T14:33:28.719Z">
+<meta property="og:updated_time" content="2017-10-17T14:59:48.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie、LocalStorage、SessionStorage">
-<meta name="twitter:description" content="首先，从存储位置来看，可以分为服务端存储和客户端存储两种。 服务端存储：session 浏览器端存储：cookie，localStorage，sessionStorage  作为浏览器端存储的cookie，也可以在服务端对其进行操作">
+<meta name="twitter:description" content="首先，从存储位置来看，可以分为服务端存储和客户端存储两种。 服务端存储：session 浏览器端存储：cookie，localStorage，sessionStorage">
 
 
 
@@ -302,9 +302,6 @@
         <p>首先，从存储位置来看，可以分为服务端存储和客户端存储两种。</p>
 <p>服务端存储：session</p>
 <p>浏览器端存储：cookie，localStorage，sessionStorage</p>
-<blockquote>
-<p>作为浏览器端存储的cookie，也可以在服务端对其进行操作</p>
-</blockquote>
 <a id="more"></a>
 <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>小，只有4K，主要用作有保存登录信息，比如登陆的时候做的记住密码功能,同域可共享一套cookie</p>
 <p>原生写法：<code>document.cookie = &#39;name=xiaojiecong;expires=&#39;;</code></p>
@@ -312,6 +309,8 @@
 <p>setCookie的方法传入key，value，过期expires，</p>
 <p>getCookie方法传入key，</p>
 <p>clearCookie方法传入key(在方法里面调setCookie,过期时间设置成-1)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置cookie</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname, cvalue, exdays</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    d.setTime(d.getTime() + (exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>));</div><div class="line">    <span class="keyword">var</span> expires = <span class="string">"expires="</span>+d.toUTCString();</div><div class="line">    <span class="built_in">document</span>.cookie = cname + <span class="string">"="</span> + cvalue + <span class="string">"; "</span> + expires;</div><div class="line">&#125;</div><div class="line"><span class="comment">//获取cookie</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> name = cname + <span class="string">"="</span>;</div><div class="line">    <span class="keyword">var</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;ca.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> c = ca[i];</div><div class="line">        <span class="keyword">while</span> (c.charAt(<span class="number">0</span>)==<span class="string">' '</span>) c = c.substring(<span class="number">1</span>);</div><div class="line">        <span class="keyword">if</span> (c.indexOf(name) != <span class="number">-1</span>) <span class="keyword">return</span> c.substring(name.length, c.length);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//清除cookie  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearCookie</span>(<span class="params">name</span>) </span>&#123;  </div><div class="line">    setCookie(name, <span class="string">""</span>, <span class="number">-1</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="cookie隔离"><a href="#cookie隔离" class="headerlink" title="cookie隔离"></a>cookie隔离</h4><p>把js，css，图片等静态资源放在非主域名下，这样在请求这些资源的时候就不会带上主域名的cookie。从而降低传输成本和服务端的压力 (CDN)</p>
 <p><strong>注意</strong>：设置cookie时需要使用encodeURIComponent()编码，取值的时候需要使用decodeURIComponent()解码才能读取完整的cookie值</p>
 <h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><p>以前有一个叫userData的东西用于本地存储，现在LocalStorage被大部分浏览器支持了</p>
 <p><strong>存储时候会自动类型转换成string，所以存储器其他格式要手动转化</strong></p>
@@ -375,6 +374,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/17/HTTP协议浅析/" rel="prev" title="HTTP协议浅析">
+                HTTP协议浅析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -455,7 +458,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -508,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同点"><span class="nav-number">4.</span> <span class="nav-text">不同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性"><span class="nav-number">5.</span> <span class="nav-text">安全性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie隔离"><span class="nav-number">1.0.1.</span> <span class="nav-text">cookie隔离</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同点"><span class="nav-number">4.</span> <span class="nav-text">不同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性"><span class="nav-number">5.</span> <span class="nav-text">安全性</span></a></li></ol></div>
             
 
           </div>
