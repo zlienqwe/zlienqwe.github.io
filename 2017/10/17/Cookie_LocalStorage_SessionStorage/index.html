@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="懂得不多，见得太少">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zlienqwe">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="asadasdasda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie_LocalStorage_SessionStorage">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/Cookie_LocalStorage_SessionStorage/index.html">
 <meta property="og:site_name" content="zlienqwe">
-<meta property="og:description" content="懂得不多，见得太少">
+<meta property="og:description" content="asadasdasda">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-17T14:24:53.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zlienqwe">
-<meta name="twitter:description" content="懂得不多，见得太少">
+<meta name="twitter:title" content="Cookie_LocalStorage_SessionStorage">
+<meta name="twitter:description" content="asadasdasda">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/Cookie_LocalStorage_SessionStorage/"/>
 
 
 
 
 
-  <title>zlienqwe</title>
+  <title>Cookie_LocalStorage_SessionStorage | zlienqwe</title>
   
 
 
@@ -143,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/17/Cookie_LocalStorage_SessionStorage/" itemprop="url">Cookie_LocalStorage_SessionStorage</a></h1>
+          <h1 class="post-title" itemprop="name headline">Cookie_LocalStorage_SessionStorage</h1>
         
 
         <div class="post-meta">
@@ -301,16 +299,45 @@
       
 
       
-        
-          <p>asadasdasda</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/17/Cookie_LocalStorage_SessionStorage/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>asadasdasda</p>
+<a id="more"></a>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>小，只有4K，主要用作有保存登录信息，比如登陆的时候做的记住密码功能,同域可共享一套cookie</p>
+<p>原生写法：<code>document.cookie = &#39;name=xiaojiecong;expires=&#39;;</code></p>
+<p><strong>原生API不好用 最好自己封装三个方法</strong></p>
+<p>setCookie的方法传入key，value，过期expires，</p>
+<p>getCookie方法传入key，</p>
+<p>clearCookie方法传入key(在方法里面调setCookie,过期时间设置成-1)</p>
+<p><strong>注意</strong>：设置cookie时需要使用encodeURIComponent()编码，取值的时候需要使用decodeURIComponent()解码才能读取完整的cookie值</p>
+<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><p>以前有一个叫userData的东西用于本地存储，现在LocalStorage被大部分浏览器支持了</p>
+<p><strong>存储时候会自动类型转换成string，所以存储器其他格式要手动转化</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>)</div><div class="line"><span class="built_in">window</span>.localStorage.getItem(<span class="string">'key'</span>)</div><div class="line"><span class="built_in">window</span>.localStorage.removeItem(<span class="string">'key'</span>)</div><div class="line"><span class="built_in">window</span>.localStorage.clear()</div><div class="line"><span class="comment">//删除所有</span></div></pre></td></tr></table></figure>
+<p><strong>localStorage还可以实现同域页面之间通讯</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在同域的其他页面监听storage事件</span></div><div class="line"><span class="keyword">var</span> ls = <span class="built_in">window</span>.localStorage;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(e);</div><div class="line">&#125;, <span class="literal">false</span>)</div></pre></td></tr></table></figure>
+<h2 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h2><p>session 将一部分数据保存在当前会话中，当前页面关闭自动消失</p>
+<p>用法和localstorage一样</p>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><p><strong>生命周期</strong></p>
+<ul>
+<li><p>cookie 一般由服务器生成，可以设置失效时间</p>
+</li>
+<li><p>localstorage 需要手动清除，否则一直存在</p>
+</li>
+<li><p>session 当前会话有效，关掉页面或者浏览器失效</p>
+</li>
+</ul>
+<p><strong>大小</strong></p>
+<ul>
+<li><p>cookie 一般4K左右    </p>
+</li>
+<li><p>localstorage session 一般5M，所以存储文本信息一般不会用完</p>
+</li>
+</ul>
+<p><strong>与服务器端通信</strong></p>
+<p>cookie因为HTTP是完全无状态的协议，每次都相当于全新的一次通讯，每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</p>
+<p>localstorage session 仅在客户端（即浏览器）中保存，不参与和服务器的通信</p>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><p>cookie中最好不要放置任何明文的东西</p>
+<p>两个storage的数据提交后在服务端一定要校验，因为数据是随时可以手动更改的</p>
+<p>使用它们的时候，需要时刻注意是否有代码存在 XSS 注入的风险。</p>
+
       
     </div>
     
@@ -327,136 +354,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/前端跨域常用方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱江">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zlienqwe">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/17/前端跨域常用方法/" itemprop="url">前端跨域常用方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T20:09:21+08:00">
-                2017-10-17
-              </time>
+              <a href="/2017/10/17/前端跨域常用方法/" rel="next" title="前端跨域常用方法">
+                <i class="fa fa-chevron-left"></i> 前端跨域常用方法
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>在开发过程中经常会涉及跨域问题，解决跨域问题的方案也有很多种，接下来就来梳理一下前端跨域的常用方法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/17/前端跨域常用方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -466,10 +385,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -477,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -497,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -560,6 +493,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同点"><span class="nav-number">4.</span> <span class="nav-text">不同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性"><span class="nav-number">5.</span> <span class="nav-text">安全性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -696,6 +645,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
