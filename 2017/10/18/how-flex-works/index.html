@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="以前的项目也一直在用flex布局，但是从来没有仔细总结一下flex的用法，偶然看到阮一峰大神的博客总结的非常全面，转载过来，好好系统学习一下！">
+<meta name="description" content="So, flex plus grid literally can do everything…  以前的项目也一直在用flex布局，但是从来没有仔细总结一下flex的用法，偶然看到阮一峰大神的博客总结的非常全面，转载过来，好好系统学习一下！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flex 布局能手">
 <meta property="og:url" content="http://yoursite.com/2017/10/18/how-flex-works/index.html">
 <meta property="og:site_name" content="zlienqwe">
-<meta property="og:description" content="以前的项目也一直在用flex布局，但是从来没有仔细总结一下flex的用法，偶然看到阮一峰大神的博客总结的非常全面，转载过来，好好系统学习一下！">
+<meta property="og:description" content="So, flex plus grid literally can do everything…  以前的项目也一直在用flex布局，但是从来没有仔细总结一下flex的用法，偶然看到阮一峰大神的博客总结的非常全面，转载过来，好好系统学习一下！">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/10/18/how-flex-works/flex-direction.png">
 <meta property="og:image" content="http://yoursite.com/2017/10/18/how-flex-works/nowrap.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="http://yoursite.com/2017/10/18/how-flex-works/grow.png">
 <meta property="og:image" content="http://yoursite.com/2017/10/18/how-flex-works/shrink.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/10/18/how-flex-works/align-self.png">
-<meta property="og:updated_time" content="2017-10-19T03:45:44.873Z">
+<meta property="og:updated_time" content="2017-10-19T09:02:41.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flex 布局能手">
-<meta name="twitter:description" content="以前的项目也一直在用flex布局，但是从来没有仔细总结一下flex的用法，偶然看到阮一峰大神的博客总结的非常全面，转载过来，好好系统学习一下！">
+<meta name="twitter:description" content="So, flex plus grid literally can do everything…  以前的项目也一直在用flex布局，但是从来没有仔细总结一下flex的用法，偶然看到阮一峰大神的博客总结的非常全面，转载过来，好好系统学习一下！">
 <meta name="twitter:image" content="http://yoursite.com/2017/10/18/how-flex-works/flex-direction.png">
 
 
@@ -311,7 +311,9 @@
       
 
       
-        <p>以前的项目也一直在用<code>flex</code>布局，但是从来没有仔细总结一下<code>flex</code>的用法，偶然看到<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">阮一峰大神的博客</a>总结的非常全面，转载过来，好好系统学习一下！</p>
+        <blockquote class="blockquote-center"><p>So, flex plus grid literally can do everything…</p>
+</blockquote>
+<p>以前的项目也一直在用<code>flex</code>布局，但是从来没有仔细总结一下<code>flex</code>的用法，偶然看到<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">阮一峰大神的博客</a>总结的非常全面，转载过来，好好系统学习一下！</p>
 <a id="more"></a>
 <h2 id="Flex-布局是什么"><a href="#Flex-布局是什么" class="headerlink" title="Flex 布局是什么"></a>Flex 布局是什么</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
 <p>设为 Flex 布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效</p>
@@ -366,6 +368,7 @@
 <h3 id="align-self属性"><a href="#align-self属性" class="headerlink" title="align-self属性"></a>align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <img src="/2017/10/18/how-flex-works/align-self.png" alt="align-self.png" title="">
+<p><a href="http://yeaseonzhang.github.io/2017/07/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Flex%E5%B1%9E%E6%80%A7/" target="_blank" rel="external">深入理解Flex—属性如果真的需要计算的话</a></p>
 
       
     </div>
@@ -399,6 +402,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/19/how-grid-works/" rel="prev" title="grid布局初探">
+                grid布局初探 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -479,14 +486,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
@@ -552,7 +577,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -613,6 +638,8 @@
   
 
 
+  
+
 
 
 
@@ -651,6 +678,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
