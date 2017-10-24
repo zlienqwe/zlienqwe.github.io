@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="阮一峰老师博客我自己的demo–github 再上一个产品【喵呼】中，多处使用flex布局，感觉flex真是工具类项目前端布局神奇，各种有用的排版，从此基本告别float。">
+<meta name="description" content="1234var o = new Object();o.__proto__ = A.prototype;A.call(o)return o  var o = new Object(); o.proto = A.prototype;//这里还记得之那个function里面的默认的属性么? A.call(o)//由于这里this是指向o,可以把什么this.name/getName绑定到o上. 把这个o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex 实例">
-<meta property="og:url" content="http://yoursite.com/2017/10/19/what-flex-can-do/index.html">
+<meta property="og:title" content="使用 new 调用的函数发生了什么">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/what-does-new-do/index.html">
 <meta property="og:site_name" content="zlienqwe">
-<meta property="og:description" content="阮一峰老师博客我自己的demo–github 再上一个产品【喵呼】中，多处使用flex布局，感觉flex真是工具类项目前端布局神奇，各种有用的排版，从此基本告别float。">
+<meta property="og:description" content="1234var o = new Object();o.__proto__ = A.prototype;A.call(o)return o  var o = new Object(); o.proto = A.prototype;//这里还记得之那个function里面的默认的属性么? A.call(o)//由于这里this是指向o,可以把什么this.name/getName绑定到o上. 把这个o">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-24T02:23:10.532Z">
+<meta property="og:updated_time" content="2017-10-24T03:21:40.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex 实例">
-<meta name="twitter:description" content="阮一峰老师博客我自己的demo–github 再上一个产品【喵呼】中，多处使用flex布局，感觉flex真是工具类项目前端布局神奇，各种有用的排版，从此基本告别float。">
+<meta name="twitter:title" content="使用 new 调用的函数发生了什么">
+<meta name="twitter:description" content="1234var o = new Object();o.__proto__ = A.prototype;A.call(o)return o  var o = new Object(); o.proto = A.prototype;//这里还记得之那个function里面的默认的属性么? A.call(o)//由于这里this是指向o,可以把什么this.name/getName绑定到o上. 把这个o">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/19/what-flex-can-do/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/24/what-does-new-do/"/>
 
 
 
 
 
-  <title>flex 实例 | zlienqwe</title>
+  <title>使用 new 调用的函数发生了什么 | zlienqwe</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/what-flex-can-do/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/what-does-new-do/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="朱江">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">flex 实例</h1>
+          <h1 class="post-title" itemprop="name headline">使用 new 调用的函数发生了什么</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-19T17:06:26+08:00">
-                2017-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T11:04:48+08:00">
+                2017-10-24
               </time>
             
 
@@ -299,8 +299,13 @@
       
 
       
-        <p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">阮一峰老师博客</a><br><a href="https://github.com/zlienqwe/flex-layout-demo" target="_blank" rel="external">我自己的demo–github</a></p>
-<p>再上一个产品【<strong><a href="https://www.miaohu.co/" target="_blank" rel="external">喵呼</a></strong>】中，多处使用<code>flex</code>布局，感觉<code>flex</code>真是工具类项目前端布局神奇，各种有用的排版，从此基本告别<code>float</code>。</p>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">o.__proto__ = A.prototype;</div><div class="line">A.call(o)</div><div class="line"><span class="keyword">return</span> o</div></pre></td></tr></table></figure>
+<ol>
+<li>var o = new Object();</li>
+<li>o.<strong>proto</strong> = A.prototype;//这里还记得之那个function里面的默认的属性么?</li>
+<li>A.call(o)//由于这里this是指向o,可以把什么this.name/getName绑定到o上.</li>
+<li>把这个o返回给a;//完成var a = new A()的过程.</li>
+</ol>
 
       
     </div>
@@ -325,8 +330,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/19/hasOwnProperty/" rel="next" title="hasOwnProperty">
-                <i class="fa fa-chevron-left"></i> hasOwnProperty
+              <a href="/2017/10/24/Clone-Object/" rel="next" title="对象的深拷贝">
+                <i class="fa fa-chevron-left"></i> 对象的深拷贝
               </a>
             
           </div>
@@ -335,8 +340,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/24/Clone-Object/" rel="prev" title="对象的深拷贝">
-                对象的深拷贝 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/24/slice-substring-substr/" rel="prev" title="slice(),substring(),substr()傻傻分不清楚">
+                slice(),substring(),substr()傻傻分不清楚 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
